@@ -6,7 +6,6 @@
         "Release": true,
         "ReleaseColor": true,
         "*.bat": true,
-        "*.log": true,
         "*.sln": true,
         "*.vcxproj*": true,
         "*.db": true,
@@ -15,6 +14,7 @@
     },
     "files.associations": {
         "setautobank.h": "c",
-        "zgbmain.h": "c"
+        "zgbmain.h": "c",
+        "spritemanager.h": "c"
     }
 }
