@@ -1,15 +1,31 @@
 #include "Banks/SetAutoBank.h"
 #include "SpriteManager.h"
 #include "ZGBMain.h"
+#include "Keys.h"
+
+BOOLEAN can_shoot;
+UINT16 last_shoot_time;
 
 void START() {
+    can_shoot = TRUE;
 }
 
 void UPDATE() {
     handleInput();
+    handleBulletCollision();
 }
 
 void DESTROY() {
+}
+
+void handleBulletCollision() {
+    UINT8 i;
+	Sprite *spr;
+    SPRITEMANAGER_ITERATE(i, spr)
+	{
+		// if (spr->type == SpriteTab)
+            //if (CheckCollision(THIS, spr))
+    }
 }
 
 void handleInput() {
@@ -31,8 +47,9 @@ void handleInput() {
         translation_x *= 2;
         translation_y *= 2;
     }
-    if (key & J_A) {
-        //FIRE
+    if (KEY_TICKED(J_A) && key & J_A) {
+        // FAIA
+        SpriteManagerAdd(SpritePlayerBullet, THIS->x+4, THIS->y);
     }
 
     TranslateSprite(THIS, translation_x, translation_y);
